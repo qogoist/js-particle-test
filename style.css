@@ -2,13 +2,54 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+body {
   background-color: black;
 }
 
-canvas#canvas1 {
+h1 {
+  color: white;
+  position: absolute; 
+  left: 50%;
+  top: 5vh;
+  transform: translateX(-50%);
+}
+
+canvas {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border: 2px solid white;
+}
+
+canvas#canvasVacuum {
+  width: 90%;
+}
+
+canvas#canvasRain {
+  height: 80vh;
+}
+
+ul {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  color: white;
+  font-size: x-large;
+  list-style-type: none;
+  background-color: darkslateblue;
+  border-radius: 10px;
+}
+
+li {
+  border: 2px solid white;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: black;
+  border-radius: 10px;
+  background-color: gray;
 }
