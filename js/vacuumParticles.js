@@ -1,6 +1,7 @@
 const image = new Image();
 image.crossOrigin = "Anonymous";
-image.src = "../img/Courts_tumblr_banner.png"
+// image.src = "../img/Courts_tumblr_banner.png"
+image.src = "../img/rise_of_ravens_logo_transparent.png"
 
 image.addEventListener("load", () => {
   console.log("Image loaded")
@@ -12,7 +13,8 @@ image.addEventListener("load", () => {
   canvas.height = canvas.width * ratio;
 
   let particlesArray = [];
-  const detail = 2;
+  let numberOfParticles;
+  const detail = 3;
 
   let mouse = {
     x: null,
@@ -60,7 +62,7 @@ image.addEventListener("load", () => {
         green: green,
         blue: blue
       }
-      this.size = 1;
+      this.size = 2;
       this.weight = 2.55 - this.brightness / 100;
     }
 
@@ -139,6 +141,8 @@ image.addEventListener("load", () => {
           particlesArray.push(new Particle(x, y, brightness, red, green, blue));
       }
     }
+
+    numberOfParticles = particlesArray.length;
   }
   
   function animate() {
@@ -147,10 +151,12 @@ image.addEventListener("load", () => {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     ctx.globalAlpha = 1;
-    for (const particle of particlesArray) {
-      particle.update();
-      particle.draw();
+
+    for (let i = 0; i < numberOfParticles; i++) {
+      particlesArray[i].update();
+      particlesArray[i].draw();
     }
+
     requestAnimationFrame(animate);
   }
 
